@@ -4,7 +4,7 @@ import Main from '../Main/Main'
 import { Box,Button,Checkbox } from "@chakra-ui/react"
 import './Sidebar.css' 
 
-const Sidebar=()=> {
+const Sidebar=({ product, setProduct })=> {
     const [data, setData] = useState(products)
     const [selectedsize, setSelectedsize] = useState([])
     const [selectedgender, setSelectedgender] = useState([])
@@ -118,7 +118,7 @@ const Sidebar=()=> {
                 <Button mb={5} onClick={clearfilter} color="black">Clear filter</Button>
             </div>
             <div className="right">
-                <Main data={data}/>
+                <Main product={product} data={data}/>
             </div>
         </div>
     )
