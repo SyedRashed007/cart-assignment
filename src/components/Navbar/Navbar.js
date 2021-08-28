@@ -2,7 +2,7 @@ import React from 'react'
 import { Button } from '@chakra-ui/button';
 import { Input } from '@chakra-ui/input';
 import './Navbar.css'
-
+import { Link } from 'react-router-dom' 
 
 function Navbar() {
     return (
@@ -26,9 +26,11 @@ function Navbar() {
                 <Button  color='black' ml={2}>
                     More
                 </Button>
-                <Button  color='black' ml={2}>
-                    Sign in/Sign out
-                </Button>
+                <Link to="/cart">
+                    <Button  color='black' ml={2}>
+                        Sign in/Sign out
+                    </Button>
+                </Link>
             </div>
         </div>
     )
