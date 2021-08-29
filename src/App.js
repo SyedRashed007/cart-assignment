@@ -1,9 +1,10 @@
 import './App.css';
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';  
-import Sidebar from './components/Sidebar/Sidebar'
-import Navbar  from './components/Navbar/Navbar'
+// import Sidebar from './components/Sidebar/Sidebar'
+// import Navbar  from './components/Navbar/Navbar'
 import Cart from './components/Cart/Cart'
+import Main from './components/Main/Main';
 
 function App() {
   const [items, setItem] = React.useState();
@@ -25,11 +26,10 @@ function App() {
     <Router>
       <Switch>
         <Route path="/" exact>
-            <Navbar/>
-            <Sidebar items={items}/>
+            <Main items={items} />
         </Route>
         <Route path="/cart">
-          <Cart setItem={setItem} items={items} />
+          <Cart items={items} />
         </Route>
       </Switch>
     </Router>
