@@ -1,4 +1,4 @@
-import React , { useState } from 'react'
+import React  from 'react'
 import { SimpleGrid } from '@chakra-ui/react'
 import './Main.css'
 import { Box, Text } from '@chakra-ui/layout';
@@ -40,7 +40,7 @@ const Navbar = () =>  {
     )
 }
 function Main({ items }) {
-    console.log(items)
+    // console.log(items)
 
     return (
         <div>
@@ -68,11 +68,11 @@ function Main({ items }) {
 }
 const Card = ({ brand, name, price, image }) => {
   const history = useHistory();
-  const [selectedItem, setSelectedItem] = useState()
+//   const [selectedItem, setSelectedItem] = useState()
 
   const addToCart = () => {
     history.push('/cart')
-    setSelectedItem(selectedItem)
+    // setSelectedItem(selectedItem)
   }
   return (
     <Box>

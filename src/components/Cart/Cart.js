@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react'
-import { Box, Card, Typography } from "@material-ui/core"
+import React, {useState} from 'react'
+// import { Box, Card, Typography } from "@material-ui/core"
+// import { SimpleGrid } from '@chakra-ui/layout'
 
 // const useStyles = makeStyles({
 //     component: {
@@ -41,28 +42,15 @@ import { Box, Card, Typography } from "@material-ui/core"
 
 function Cart({ items }) {
     // const classes = useStyles();
-    const [selectedItem, setSelectedItem] = useState(items)
-
-    const Item = () => {
-        setSelectedItem(items)
-    }
-    useEffect(() => {
-        Item();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [selectedItem]);
+    const [isLoading, setIsLoading] = useState(true)
+    console.log(items)
 
     return (
-        <Card >
-            <Box src={items?.image}>
-                <img src={items?.image} alt="Product" />
-            </Box>
-            <Box>
-                <Typography>{items?.description}</Typography>
-                 <Typography style={{margin: '20px 0'}}>
-                    <span >₹{items?.price}</span>
-                </Typography>
-            </Box>
-        </Card>
+        <div>
+            {
+                isLoading && <img src={items?.image} alt="product" />
+            } 
+        </div>
     )
 }
 

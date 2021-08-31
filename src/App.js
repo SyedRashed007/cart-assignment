@@ -5,17 +5,15 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // import Navbar  from './components/Navbar/Navbar'
 import Cart from './components/Cart/Cart'
 import Main from './components/Main/Main';
+import axios from 'axios';
 
 function App() {
   const [items, setItem] = React.useState();
 
   const getItemData = async () => {
-    await fetch("https://fakestoreapi.com/products")
-      .then((res) => res.json())
-      .then((data) => {
-        setItem(data);
-        // console.log(data)
-      });
+  const { data } = await axios.get('https://fakestoreapi.com/products')
+    // console.log(data)
+    setItem(data) 
   };
 
   React.useEffect(() => {
