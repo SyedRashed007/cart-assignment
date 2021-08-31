@@ -9,6 +9,7 @@ import axios from 'axios';
 
 function App() {
   const [items, setItem] = React.useState();
+  const [cartItems, setCartItems] = React.useState();
 
   const getItemData = async () => {
   const { data } = await axios.get('https://fakestoreapi.com/products')
@@ -24,10 +25,10 @@ function App() {
     <Router>
       <Switch>
         <Route path="/" exact>
-            <Main items={items} />
+            <Main items={items} setCartItems={setCartItems} />
         </Route>
         <Route path="/cart">
-          <Cart items={items} />
+          <Cart cartItems={cartItems} setCartItems={setCartItems}  />
         </Route>
       </Switch>
     </Router>

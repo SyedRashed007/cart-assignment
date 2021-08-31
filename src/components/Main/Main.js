@@ -9,6 +9,7 @@ import { Input } from '@chakra-ui/input';
 import { Link } from 'react-router-dom' 
 
 const Navbar = () =>  {
+
     return (
         <div>
             <div className="navWrapper">
@@ -39,7 +40,7 @@ const Navbar = () =>  {
         </div>
     )
 }
-function Main({ items }) {
+function Main({ items, setCartItems }) {
     // console.log(items)
 
     return (
@@ -54,6 +55,7 @@ function Main({ items }) {
                     <SimpleGrid columns={3} spacingY={12} mt={5}>
                         {items?.map((a) => (
                             <Card
+                            setCartItems={setCartItems}
                             key={a.id}
                             brand={a.brand}
                             name={a.name}
@@ -66,11 +68,14 @@ function Main({ items }) {
         </div>
     )
 }
-const Card = ({ brand, name, price, image }) => {
+const Card = ({ brand, name, price, image, items, id, setCartItems }) => {
   const history = useHistory();
 //   const [selectedItem, setSelectedItem] = useState()
 
-  const addToCart = () => {
+  const addToCart = (id) => {
+    let newCart = items.filter((id) => id.items.includes(id.target.value))
+    console.log("Line 77", items)
+    setCartItems(newCart)
     history.push('/cart')
     // setSelectedItem(selectedItem)
   }
@@ -80,7 +85,8 @@ const Card = ({ brand, name, price, image }) => {
       <Text className='brand'>{brand} </Text>
       <Text className='name'>{name}</Text>
       <Text className='price'>Rs {price}</Text>
-      <Button onClick={addToCart}>Add to cart</Button>
+      {/* Send id */}
+      <Button onClick={() => addToCart(id)}>Add to cart</Button>
     </Box>
 
   );

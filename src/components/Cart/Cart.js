@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 // import { Box, Card, Typography } from "@material-ui/core"
 // import { SimpleGrid } from '@chakra-ui/layout'
 
@@ -40,15 +40,16 @@ import React, {useState} from 'react'
 //     }
 // })
 
-function Cart({ items }) {
+function Cart({ cartItems, setCartItems }) {
     // const classes = useStyles();
-    const [isLoading, setIsLoading] = useState(true)
-    console.log(items)
+    // const [isLoading, setIsLoading] = useState(false)
+    console.log(cartItems)
 
     return (
         <div>
             {
-                isLoading && <img src={items?.image} alt="product" />
+                /* cartItems[0] &&  cartItems[0].id */
+                <img src={cartItems?.image} alt="product" />
             } 
         </div>
     )
